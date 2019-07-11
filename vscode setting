@@ -1,0 +1,85 @@
+{
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.matchBrackets": false,
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.insertSpaces": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": false,
+  "files.autoSave": "off",
+  "files.defaultLanguage": "zh-cn",
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.6,
+  "markdown.preview.fontSize": 14,
+  "extensions.autoUpdate": true,
+  "terminal.external.osxExec": "/bin/zsh",
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  // "eslint.validate": [
+  //   "javascript",
+  //   "javascriptreact",
+  //   "vue",
+  //   "html"
+  // ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+      {
+        "language": "vue",
+        "autoFix": true
+      }
+  ],
+  "eslint.autoFixOnSave": true,
+  "files.insertFinalNewline": true,
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "vue": "html",
+    "javascript": "javascriptreact"
+  },
+  // "http.proxy": "http://127.0.0.1:1080",
+  "workbench.sideBar.location": "left",
+  "git.autofetch": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "search.location": "sidebar",
+  "fileheader.Author": "yufeng6",
+  "fileheader.LastModifiedBy": "yufeng6",
+  "breadcrumbs.enabled": true,
+  "editor.fontFamily": "Monaco, Consolas, 'Courier New', monospace",
+  "terminal.integrated.shell.windows": "D:\\Program Files\\Git\\bin\\bash.exe",
+  "window.zoomLevel": 0,
+  "materialTheme.accent": "Teal",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "files.associations": {
+    "*.html": "html",
+    "*.vue": "vue"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "search.followSymlinks": false,
+  // "vetur.format.defaultFormatter.js": "vscode-typescript",
+  // "prettier.singleQuote": true,
+  // "prettier.semi": false,
+  // "prettier.eslintIntegration": true,
+  // "vetur.format.defaultFormatter.js": "prettier-eslint"
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "semi": false,
+      "singleQuote": true
+    }
+  },
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "html.format.enable": false,
+  "vetur.format.defaultFormatter.js": "vscode-typescript"
+}
