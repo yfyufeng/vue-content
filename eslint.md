@@ -1,0 +1,3 @@
+prettier
+husky
+lint-staged
