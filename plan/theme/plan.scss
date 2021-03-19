@@ -1,0 +1,221 @@
+@include b(plan) {
+  position: relative;
+  height: $--plan-height;
+
+  // 左侧标签
+  @include e(label) {
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    padding: 0 8px;
+    color: #333;
+    font-size: 14px;
+    line-height: $--plan-height;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // 右侧操作项
+  @include e(action) {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background-color: $--plan-bgcolor;
+    text-align: left;
+  }
+  @include e(action-btns) {
+    margin: 4px;
+    .el-button,
+    .el-button--iconButton,
+    .el-button--iconButton:hover {
+      background-color: transparent;
+    }
+  }
+
+  @include e(wrapper) {
+    position: absolute;
+    z-index: 3;
+    height: 100%;
+  }
+
+  // 时间段模板
+  @include e(range-wrap) {
+    position: absolute;
+    min-width: 1px;
+    height: $--plan-height;
+  }
+  @include e(range) {
+    position: absolute;
+    z-index: 3;
+    top: 8px;
+    width: 100%;
+    height: $--plan-height - 16;
+    background-color: $--range-default-color;
+    cursor: pointer;
+    line-height: 24px;
+    text-align: center;
+    @include when(active) {
+      z-index: 10;
+      & > .h-plan__text {
+        color: #fff;
+      }
+      & > .h-plan__drag-handle {
+        display: block;
+      }
+    }
+  }
+
+  // 左右拖拽操作栏
+  @include e(drag-handle) {
+    position: absolute;
+    z-index: 11;
+    top: -1px;
+    bottom: -1px;
+    display: none;
+    width: 8px;
+    cursor: e-resize;
+    &::before,
+    &::after {
+      position: absolute;
+      display: block;
+      border-width: 4px;
+      border-style: solid;
+      content: '';
+    }
+    &::before {
+      top: -8px;
+      border-color: #f58154 transparent transparent;
+    }
+    &::after {
+      bottom: -8px;
+      border-color: transparent transparent #f58154;
+    }
+    @include m(left) {
+      left: -4px;
+    }
+    @include m(right) {
+      right: -4px;
+    }
+    @include m(tooltip) {
+      transform: translate(0, -3px);
+    }
+  }
+
+  // 时间选择弹出框
+  @include e(popover) {
+    padding: 4px;
+    p {
+      margin-bottom: 8px;
+      color: #4c4c4c;
+      font-weight: bold;
+    }
+    .el-date-editor.el-input {
+      width: 86px;
+    }
+    @include m(time) {
+      white-space: nowrap;
+    }
+    @include m(dividing) {
+      position: relative;
+      top: -4px;
+      display: inline-block;
+      width: 8px;
+      height: 1px;
+      margin: 0 8px;
+      background-color: #999;
+    }
+    @include m(action) {
+      margin: 10px 0 0;
+      text-align: right;
+    }
+    @include m(dark) {
+      &.el-popover {
+        min-width: auto;
+        padding: 10px 16px;
+        background-color: $--color-neutral-9;
+        color: $--color-neutral-2;
+        .popper__arrow {
+          border-color: $--color-neutral-9;
+        }
+      }
+    }
+    @include m(point) {
+      width: 160px;
+      text-align: center;
+      &.h-plan__popover--dark {
+        width: 80px;
+      }
+    }
+  }
+
+  // 时间点容器
+  @include e(point-wrap) {
+    position: absolute;
+    width: 5px;
+    height: 40px;
+    margin-left: -2px;
+  }
+  // 时间点
+  @include e(point) {
+    position: relative;
+    height: 100%;
+  }
+  // 时间点图标
+  @include e(point-icon) {
+    position: absolute;
+    bottom: 0;
+    color: #3d6ce5;
+    transition: font-size 0.2s;
+    &.e-anchor-time-nor {
+      font-size: 24px;
+    }
+    &.e-anchor-time-hover {
+      font-size: 36px;
+    }
+  }
+  // 光标
+  @include e(point-cursor) {
+    position: absolute;
+    width: 5px;
+    height: 40px;
+    margin-left: -2px;
+    &::before,
+    &::after {
+      position: absolute;
+      left: -2px;
+      display: block;
+      border-width: 4px;
+      border-style: solid;
+      content: '';
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    &::before {
+      top: 0;
+      border-color: #f58154 transparent transparent;
+    }
+    &::after {
+      bottom: 0;
+      border-color: transparent transparent #f58154;
+    }
+    &:hover {
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// 纵向分割线改为 8px
+.h-plan__point-panel-wrap .h-plan-group__tickline {
+  height: 8px;
+  &:first-child {
+    height: calc(100% - 24px);
+  }
+}
+// 添加横向分割线
+.h-point-plan:not(:last-child) .h-plan__wrapper {
+  border-bottom: 1px solid $--line-color;
+}

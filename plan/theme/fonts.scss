@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'dolphin-timeline';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$--plan-font-path}/dolphin-timeline.eot?kfk1j9');
+  src: url('#{$--plan-font-path}/dolphin-timeline.eot?kfk1j9#iefix')
+      format('embedded-opentype'),
+    url('#{$--plan-font-path}/dolphin-timeline.ttf?kfk1j9') format('truetype'),
+    url('#{$--plan-font-path}/dolphin-timeline.woff?kfk1j9') format('woff'),
+    url('#{$--plan-font-path}/dolphin-timeline.svg?kfk1j9#dolphin-timeline')
+      format('svg');
+}
+
+[class^='e-anchor'],
+[class*=' e-anchor'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'dolphin-timeline', sans-serif !important;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+
+.e-anchor-time-hover::before {
+  content: '\e900';
+}
+.e-anchor-time-nor::before {
+  content: '\e901';
+}

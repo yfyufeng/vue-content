@@ -1,0 +1,91 @@
+@include b(plan-group) {
+  position: relative;
+  overflow: hidden;
+  padding: 1px;
+  // 面板：包含边框和线条
+  @include e(panel-wrap) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #e8e8e8;
+  }
+  @include e(panel) {
+    width: 100%;
+    height: 100%;
+  }
+
+  // 顶部时间轴
+  @include e(timeline-wrap) {
+    position: relative;
+    background-color: $--plan-bgcolor;
+  }
+  // 头部左侧标签
+  @include e(label) {
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  // 头部右侧操作项
+  @include e(action) {
+    position: absolute;
+    right: 0;
+    overflow: hidden;
+    height: 100%;
+  }
+  @include e(timeline) {
+    overflow: hidden;
+    width: 100%;
+    height: $--timeline-height;
+    padding: 0;
+    margin: 0;
+    line-height: $--timeline-height;
+    pointer-events: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  // 顶部时间轴 - 时间段
+  @include e(scale) {
+    display: block;
+    width: 8.333%;
+    float: left;
+    font-size: 12px;
+  }
+  @include e(scale-label) {
+    color: #333;
+    @include m(last) {
+      margin-right: 2px;
+      float: right;
+    }
+  }
+
+  // 顶部时间轴 - 刻度线
+  @include e(tickline) {
+    width: 4.1667%;
+    height: calc(100% - 24px);
+    margin-top: $--timeline-height;
+    border-left: 1px solid $--line-color;
+    float: left;
+    &:nth-child(2n) {
+      height: 4px;
+    }
+  }
+
+  // 计划模板hover模块
+  @include e(hover) {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: $--plan-height;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: top 0.15s;
+  }
+}
