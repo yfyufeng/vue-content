@@ -1,0 +1,15 @@
+@import '~@hui-pro/theme/index.scss';
+
+@include b(ellipsis) {
+  display: inline-block;
+  width: 100%;
+  vertical-align: bottom;
+  @include utils-ellipsis;
+  &.display-block {
+    display: block;
+  }
+  &.non-full {
+    width: auto;
+    max-width: 100%;
+  }
+}
