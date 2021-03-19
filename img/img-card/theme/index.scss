@@ -1,0 +1,360 @@
+@import '~@hui-pro/theme/index.scss';
+
+.h-img-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: $--color-white;
+  .h-img-card-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    &.hasPagination {
+      bottom: 57px;
+    }
+  }
+  .h-card-warpper {
+    padding-right: 16px;
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 0;
+    .h-card-content {
+      position: relative;
+      width: 100%;
+      // border: 1px solid $--border-color-light;
+      border-radius: 2px;
+      .h-card-left {
+        position: absolute;
+        z-index: 1;
+        top: 8px;
+        left: 8px;
+        height: 20px;
+      }
+      .h-card-right {
+        position: absolute;
+        z-index: 1;
+        top: 8px;
+        right: 8px;
+        height: 20px;
+        .h-card-right-item {
+          display: inline-block;
+          height: 24px;
+          padding: 0 4px;
+          margin-left: 8px;
+          background-color: $--color-info;
+          border-radius: 2px;
+          color: $--color-white;
+          font-size: 12px;
+          line-height: 24px;
+          vertical-align: top;
+          &.card-icon {
+            width: 24px;
+            padding: 0 3px;
+          }
+          &.card-bg-barnd {
+            background-color: $--color-brand;
+          }
+          &::before {
+            font-size: 18px;
+          }
+        }
+      }
+      .h-card-toolbar-mask {
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background-color: $--color-neutral-rgba-2;
+        .h-card-toolbar-list {
+          position: absolute;
+          top: 32px;
+          left: 0;
+          display: none;
+          background-color: $--color-white;
+          border-radius: 2px;
+          box-shadow: $--box-shadow;
+          .h-card-toolbar-list-item {
+            position: relative;
+            display: block;
+            width: 80px;
+            height: 32px;
+            box-sizing: border-box;
+            padding-left: 18px;
+            color: $--color-neutral-1;
+            font-size: 14px;
+            line-height: 32px;
+            &::before {
+              position: absolute;
+              top: 1px;
+              left: 8px;
+              font-size: 24px;
+            }
+            &:hover {
+              background-color: $--color-neutral-rgba-9;
+            }
+            &:active {
+              background-color: $--color-neutral-rgba-8;
+            }
+          }
+        }
+        .h-card-toolbar {
+          height: 40px;
+          .h-card-toolbar-item {
+            position: relative;
+            display: inline-block;
+            width: 32px;
+            height: 40px;
+            padding-top: 32px;
+            margin-right: 32px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            text-align: center;
+            &:last-child {
+              margin-right: 0;
+            }
+            &:hover {
+              color: rgba(255, 255, 255, 0.9);
+            }
+            &:active {
+              color: $--color-white;
+            }
+            &::before {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              font-size: 32px;
+              text-align: center;
+            }
+            &.h-icon-star_f::before {
+              color: $--color-remind;
+            }
+            &.h-icon-more_hori:hover {
+              .h-card-toolbar-list {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      .h-card-toolbar-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        &:hover .h-card-toolbar-mask {
+          display: flex;
+        }
+      }
+      img {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+      }
+      .card-message {
+        padding: 8px 16px;
+        font-size: 14px;
+        .card-message-item {
+          height: 16px;
+          margin-top: 8px;
+          line-height: 16px;
+          &:first-child {
+            margin-top: 0;
+          }
+          &.card-color-light {
+            color: $--color-neutral-rgba-3;
+          }
+        }
+      }
+      .h-card-bottom-toolbar {
+        display: flex;
+        height: 40px;
+        background-color: $--color-neutral-9;
+        color: $--color-black;
+        font-size: 24px;
+        line-height: 40px;
+        .h-card-bottom-toolbar-item {
+          position: relative;
+          height: 100%;
+          flex: 1;
+          line-height: 40px;
+          text-align: center;
+          &.color-light {
+            color: $--font-color-regular;
+          }
+          &:hover {
+            background-color: $--color-neutral-rgba-9;
+          }
+          &:active {
+            background-color: $--color-neutral-rgba-8;
+          }
+        }
+        .h-card-line {
+          width: 1px;
+          height: 16px;
+          margin-top: 12px;
+          background-color: $--border-color;
+        }
+      }
+      .card-img-hover-container {
+        position: absolute;
+        z-index: 100;
+        top: 10px;
+        left: 10px;
+        display: none;
+        width: 200px;
+        height: 100px;
+        color: $--color-white;
+        font-size: 14px;
+      }
+      .card-hidden-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
+      }
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: 1px solid $--border-color-light;
+        border-radius: 2px;
+        content: '';
+      }
+      &:hover {
+        // width: calc(100% - 2px);
+        // margin-bottom: 2px;
+        // border: none;
+        box-shadow: 0 1px 4px 0 $--color-neutral-rgba-10,
+          0 16px 32px 0 rgba(0, 0, 0, 0.16);
+        .card-img-hover-container {
+          display: block;
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+  .h-img-pagination {
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    left: 12px;
+    height: 57px;
+    border-top: 1px solid $--color-neutral-rgba-6;
+    background-color: $--color-white;
+  }
+  // 修改checkbox样式
+  .el-checkbox {
+    width: 20px;
+    height: 20px;
+  }
+  .el-checkbox__input {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    .el-checkbox__inner {
+      width: 20px;
+      height: 20px;
+      border-color: rgba(255, 255, 255, 0.4);
+      background-color: $--color-neutral-rgba-2;
+      border-radius: 2px;
+      .h-svg-icon-wrapper {
+        top: 2px;
+        left: 2px;
+        transition: none;
+        .el-checkbox__tick {
+          fill: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+    &:hover {
+      .h-svg-icon-wrapper {
+        transform: scale(1);
+      }
+    }
+    &:active {
+      .h-svg-icon-wrapper {
+        .el-checkbox__tick {
+          fill: rgba(255, 255, 255, 0.9);
+        }
+      }
+    }
+    &.is-disabled {
+      .el-checkbox__inner {
+        border-color: rgba(255, 255, 255, 0.2);
+        background-color: $--color-neutral-rgba-3;
+        &::after {
+          display: none;
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+    &.is-checked {
+      .el-checkbox__inner {
+        border: none;
+        background-color: $--color-brand;
+        .h-svg-icon-wrapper {
+          top: 3px;
+          left: 3px;
+          transform: scale(1);
+          .el-checkbox__tick {
+            fill: #fff;
+          }
+        }
+        &:hover {
+          background-color: $--color-brand-hov;
+          .h-svg-icon-wrapper .el-checkbox__tick {
+            fill: #fff;
+          }
+        }
+        &:active {
+          background-color: $--color-brand-pre;
+          .h-svg-icon-wrapper .el-checkbox__tick {
+            fill: #fff;
+          }
+        }
+        &::after {
+          width: 0;
+          height: 0;
+        }
+      }
+      &.is-disabled {
+        .el-checkbox__inner {
+          background-color: $--color-brand-dis;
+          &::after {
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.h-img-scrollbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-left: 16px;
+}

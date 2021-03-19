@@ -1,0 +1,87 @@
+@import '~@hui-pro/theme/index.scss';
+@import '~@hui-pro/empty/theme/index.scss';
+
+@keyframes hImgFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include b(img-view) {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+
+  @include e(img) {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  @include e(wrapper) {
+    @include when(move-transition) {
+      transition: all 0.25s;
+    }
+    @include when(fade) {
+      animation: hImgFade 0.3s;
+    }
+    @include when(native) {
+      width: 100%;
+      height: 100%;
+      @include e(img) {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  @include m(adjust) {
+    @include e(wrapper) {
+      cursor: move\0;
+      cursor: grab;
+      @include when(drag) {
+        cursor: grabbing;
+      }
+    }
+  }
+
+  @include m((cover, none)) {
+    @include e(img) {
+      max-width: unset !important;
+      max-height: unset !important;
+    }
+  }
+
+  @include m(fill) {
+    @include e(wrapper) {
+      width: 100%;
+      height: 100%;
+    }
+    @include e(img) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @include m(bg-white) {
+    background-color: $--color-white;
+  }
+
+  @include m(bg-gray) {
+    background-color: $--color-neutral-9;
+  }
+
+  @include m(placeholder) {
+    position: absolute;
+  }
+}

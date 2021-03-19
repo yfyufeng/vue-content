@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>common_closed_hor</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M29.7548029,28.5708867 C30.0817324,28.8978161 30.0817324,29.4278735 29.7548029,29.7548029 C29.4278735,30.0817324 28.8978161,30.0817324 28.5708867,29.7548029 L20,21.1839163 L11.4291133,29.7548029 C11.1021839,30.0817324 10.5721265,30.0817324 10.2451971,29.7548029 C9.91826764,29.4278735 9.91826764,28.8978161 10.2451971,28.5708867 L18.8160837,20 L10.2451971,11.4291133 C9.91826764,11.1021839 9.91826764,10.5721265 10.2451971,10.2451971 C10.5721265,9.91826764 11.1021839,9.91826764 11.4291133,10.2451971 L20,18.8160837 L28.5708867,10.2451971 C28.8978161,9.91826764 29.4278735,9.91826764 29.7548029,10.2451971 C30.0817324,10.5721265 30.0817324,11.1021839 29.7548029,11.4291133 L21.1839163,20 L29.7548029,28.5708867 Z" id="path-1"></path>
+    </defs>
+    <g id="❤️-查看大图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="查看大图1-单图" transform="translate(-833.000000, -2831.000000)">
+            <g id="标题+详情" transform="translate(160.000000, 2664.000000)">
+                <g id="common_closed_hor" transform="translate(674.000000, 168.000000)">
+                    <circle id="bg" stroke-opacity="0.3" stroke="#FFFFFF" fill-opacity="0.4" fill="#000000" cx="24" cy="24" r="24"></circle>
+                    <g id="Common/Close" opacity="0.9" transform="translate(24.000000, 24.000000) scale(-1, 1) translate(-24.000000, -24.000000) translate(4.000000, 4.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="color" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

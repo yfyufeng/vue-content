@@ -1,0 +1,183 @@
+@import '~@hui-pro/theme/index.scss';
+@import '~@hui-pro/img-view/theme/index.scss';
+
+@include b(img-carousel) {
+  position: relative;
+  height: 100%;
+  @include e(wrapper) {
+    overflow: hidden;
+    height: 100%;
+  }
+  @include e(items) {
+    display: flex;
+    height: 100%;
+    @include when(transition) {
+      transition: transform 0.25s ease;
+    }
+  }
+  @include e(item) {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-height: 100%;
+    flex: 0 0 100%;
+    flex-direction: column;
+  }
+  @include e(video-wrapper) {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  @include e(video) {
+    width: 100%;
+    height: 100%;
+  }
+  @include e(placeholder) {
+    width: 100%;
+    height: 100%;
+  }
+  @include e(btn-group) {
+    width: 100%;
+    margin: 8px 0;
+    text-align: center;
+  }
+  @include e((prev, next)) {
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+
+    i {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      color: $--color-neutral-10;
+      font-size: 72px;
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        margin-top: -36px;
+      }
+    }
+
+    @include when(disabled) {
+      opacity: 1;
+    }
+  }
+  @include e(prev) {
+    left: 0;
+  }
+  @include e(next) {
+    right: 0;
+  }
+  @include m((theme-light, theme-light-gray)) {
+    i {
+      text-shadow: 1px 0 2px rgba($--color-neutral, 20%);
+    }
+    @include e(prev) {
+      left: 0;
+      background-image: linear-gradient(
+        270deg,
+        rgba($--color-neutral, 0) 0%,
+        rgba($--color-neutral, 0.04) 100%
+      );
+      &:hover {
+        background-image: linear-gradient(
+          270deg,
+          rgba($--color-neutral, 0) 0%,
+          rgba($--color-neutral, 0.08) 50%
+        );
+      }
+      &:active {
+        background-image: linear-gradient(
+          270deg,
+          rgba($--color-neutral, 0) 0%,
+          rgba($--color-neutral, 0.12) 50%
+        );
+      }
+      @include when(disabled) {
+        background-image: linear-gradient(
+          270deg,
+          rgba($--color-neutral, 0) 0%,
+          rgba($--color-neutral, 0.04) 100%
+        );
+        i {
+          color: $--color-neutral-8;
+          opacity: 0.4;
+          text-shadow: none;
+        }
+      }
+    }
+    @include e(next) {
+      right: 0;
+      background-image: linear-gradient(
+        90deg,
+        rgba($--color-neutral, 0) 0%,
+        rgba($--color-neutral, 0.04) 100%
+      );
+      &:hover {
+        background-image: linear-gradient(
+          90deg,
+          rgba($--color-neutral, 0) 0%,
+          rgba($--color-neutral, 0.08) 50%
+        );
+      }
+      &:active {
+        background-image: linear-gradient(
+          90deg,
+          rgba($--color-neutral, 0) 0%,
+          rgba($--color-neutral, 0.12) 50%
+        );
+      }
+      @include when(disabled) {
+        background-image: linear-gradient(
+          90deg,
+          rgba($--color-neutral, 0) 0%,
+          rgba($--color-neutral, 0.04) 100%
+        );
+        i {
+          color: $--color-neutral-8;
+          opacity: 0.4;
+          text-shadow: none;
+        }
+      }
+    }
+  }
+  @include m(theme-dark) {
+    @include e((prev, next)) {
+      i {
+        color: $--color-neutral-2;
+        &:hover {
+          color: $--color-neutral-1;
+        }
+      }
+
+      @include when(disabled) {
+        i {
+          color: $--color-neutral-3;
+        }
+      }
+    }
+  }
+  @include m(theme-transparent) {
+    @include e((prev, next)) {
+      i {
+        color: $--color-neutral-f-rgba-2;
+        &:hover {
+          color: $--color-neutral-f-rgba-1;
+        }
+      }
+
+      @include when(disabled) {
+        i {
+          color: $--color-neutral-f-rgba-3;
+        }
+      }
+    }
+  }
+}

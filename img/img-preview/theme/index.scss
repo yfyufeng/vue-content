@@ -1,0 +1,178 @@
+@import '~@hui-pro/theme/index.scss';
+@import '~@hui-pro/img-carousel/theme/index.scss';
+@import '~@hui-pro/img-snippets/theme/index.scss';
+@import '~@hui-pro/album/theme/index.scss';
+
+@include b(img-preview) {
+  @include e(wrapper) {
+    position: fixed;
+    z-index: 3000;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: 32px 0;
+    transition: all 0.35s ease;
+    @include has(album) {
+      padding: 32px 0 0 0;
+    }
+  }
+  @include e(container) {
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+    padding: 0 24px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  @include e(close) {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    cursor: pointer;
+    i {
+      position: relative;
+      top: 1px;
+      left: 1px;
+      font-size: 36px;
+    }
+  }
+  @include e(top) {
+    flex-shrink: 0;
+    padding: 0 24px;
+    @include utils-ellipsis();
+  }
+  @include e(title) {
+    height: 24px;
+    flex-shrink: 0;
+    padding: 0 88px 0 24px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    @include utils-ellipsis();
+  }
+  @include e(description) {
+    height: 20px;
+    flex-shrink: 0;
+    padding: 0 88px 0 24px;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    @include utils-ellipsis();
+  }
+  @include e(btn-group) {
+    margin: 0 24px;
+  }
+  @include e(album) {
+    margin: 0 16px;
+  }
+  @include m(theme-light) {
+    @include e(top) {
+      color: $--color-neutral-1;
+    }
+    @include e(title) {
+      color: $--color-neutral-1;
+    }
+    @include e(description) {
+      color: $--color-neutral-2;
+    }
+    @include e(close) {
+      border: 1px solid $--color-neutral-6;
+      background-color: $--color-neutral-f-rgba-4;
+      i {
+        color: $--color-neutral-2;
+      }
+      &:hover {
+        i {
+          color: $--color-neutral-1;
+        }
+
+        background-color: $--color-neutral-6;
+      }
+      &:active {
+        background-color: $--color-neutral-8;
+      }
+    }
+  }
+  @include m(theme-dark) {
+    @include e(top) {
+      color: $--color-white;
+    }
+    @include e(title) {
+      color: $--color-white;
+    }
+    @include e(description) {
+      color: $--color-neutral-f-rgba-2;
+    }
+    @include e(close) {
+      border: 1px solid $--color-neutral-f-rgba-6;
+      background-color: blanch($--color-neutral, 85%);
+      i {
+        color: $--color-neutral-f-rgba-2;
+      }
+      &:hover {
+        background-color: blanch($--color-neutral, 80%);
+      }
+      &:active {
+        background-color: blanch($--color-neutral, 82%);
+      }
+    }
+  }
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.zoom-enter,
+.zoom-leave-to {
+  opacity: 0;
+  transform: scale(0, 0);
+}
+
+@keyframes v-modal-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes v-modal-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@include b(img-preview) {
+  @include m(light) {
+    &.v-modal {
+      background: rgba(255, 255, 255, 0.9);
+    }
+  }
+  @include m(dark) {
+    &.v-modal {
+      background: rgba(26, 26, 26, 0.9);
+    }
+  }
+  @include m((light, dark)) {
+    &.v-modal-enter {
+      animation: v-modal-in 0.35s ease;
+    }
+
+    &.v-modal-leave {
+      animation: v-modal-out 0.35s ease;
+    }
+  }
+}
