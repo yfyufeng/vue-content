@@ -1,0 +1,280 @@
+@import '~@hui-pro/theme/index.scss';
+@import '~@hui-pro/ellipsis/theme/index.scss';
+
+$theme-color: $--color-brand; // 组件的主题色(继承自hui的主题设置)
+$bg-week-wrapper: $--color-neutral-rgba-9; // 星期部分的背景色
+$bg-date-wrapper: #fff; // 日期部分的背景色
+$bg-date-icon: $--color-neutral-rgba-9; // 日期部分的背景色
+$border-color: #ebebeb; // 日历边框颜色
+$font-color: $--color-neutral-rgba-2; // 字体颜色
+$font-color-light: $--color-neutral-rgba-3; // 字体颜色浅色
+
+// 年月选择模块的样式
+@include b(year-month-selector) {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  user-select: none;
+  > * {
+    cursor: pointer;
+    vertical-align: middle;
+  }
+  > i {
+    color: $--color-neutral-rgba-2;
+    font-size: 32px;
+    vertical-align: middle;
+    &:hover {
+      color: $theme-color;
+    }
+    &.prev-year {
+      margin-right: 16px;
+    }
+    &.next-year {
+      margin-left: 16px;
+    }
+  }
+  .year-month-value {
+    display: inline-block;
+    width: 150px;
+    height: 32px;
+    margin-right: 24px;
+    margin-left: 24px;
+    font-size: 0;
+    line-height: 32px;
+    > span {
+      display: inline-block;
+      font-size: 22px;
+    }
+    .month-view {
+      margin-left: 16px;
+    }
+    .year-view,
+    .month-view {
+      position: relative;
+      color: $--color-neutral-rgba-1;
+      &:hover {
+        color: $theme-color;
+      }
+    }
+  }
+  .picker.important {
+    position: absolute;
+    overflow: hidden;
+    // left: 0;
+    // right: 0;
+    width: 100%;
+    // margin: auto;
+    opacity: 0;
+    // margin-top: -128px; // 注意，这里是为了让date-picker的面板刚好处在日历操作栏的中间
+    input {
+      cursor: pointer;
+    }
+    // /deep/ .el-date-editor {
+    //   width: 100%;
+    // }
+    // width: auto;
+    // z-index: -1;
+  }
+  .disabled {
+    cursor: not-allowed;
+  }
+}
+// 日历模块的样式
+@include b(perpetual-calendar) {
+  width: 100%;
+  min-width: 640px;
+
+  .year-month-operate-bar {
+    position: relative;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+
+    .return-current-month {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      padding-right: 12px;
+      margin-top: 16px;
+      cursor: pointer;
+      line-height: 24px;
+      user-select: none;
+      i {
+        font-size: 24px;
+        vertical-align: middle;
+      }
+      span {
+        vertical-align: middle;
+      }
+    }
+  }
+  .calendar-main-content {
+    display: table;
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse; // 表格间边框合并，防止出现间隔
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word; //表格固定布局
+
+    .week-wrapper {
+      height: 36px;
+      border: none;
+      background-color: $bg-week-wrapper;
+
+      .week-day {
+        border: none;
+        color: $font-color-light;
+        font-weight: normal;
+        vertical-align: middle;
+      }
+    }
+    .date-wrapper {
+      background-color: $bg-date-wrapper;
+
+      .date-item {
+        // height: 111px;
+        padding: 0;
+        border: 1px solid $border-color;
+
+        .date-item-wrapper {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          padding: 8px 12px;
+          color: $font-color;
+          cursor: pointer;
+          user-select: none;
+          &::after {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            display: none;
+            width: 100%;
+            height: 100%;
+            content: '';
+          }
+          &:hover {
+            display: block;
+            background: $--color-neutral-rgba-8;
+          }
+          &:active {
+            display: block;
+            background: $--color-neutral-rgba-6;
+          }
+          &.notCurrentMonth {
+            color: $font-color-light;
+          }
+          &.readonly {
+            cursor: auto;
+          }
+          &.disabled {
+            cursor: not-allowed;
+          }
+          .date-info {
+            display: flex;
+            justify-content: space-between;
+            .solar-date {
+              font-size: 16px;
+              font-weight: bold;
+              line-height: 26px;
+            }
+            .lunar-date {
+              font-size: 14px;
+            }
+          }
+          .festival-info {
+            height: 18px;
+            line-height: 18px;
+            .festival {
+              display: inline-block;
+              color: $font-color-light;
+              font-size: 12px;
+              line-height: 18px;
+            }
+          }
+          .status span {
+            position: absolute;
+            right: 4px;
+            bottom: 4px;
+            width: auto;
+            min-width: 24px;
+            max-width: 90%;
+            height: 24px;
+            padding: 0 5px;
+            background: $bg-date-icon;
+            border-radius: 2px;
+            color: $font-color-light;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            &.icon {
+              font-size: 24px;
+            }
+          }
+        }
+        &.holiday {
+          .date-item-wrapper .status span {
+            background: $theme-color;
+            color: #fff;
+            font-size: 14px;
+          }
+        }
+        // 多选时，被选中日期的样式
+        &.checked .date-item-wrapper {
+          display: block;
+          background: $--color-neutral-rgba-6;
+        }
+        &:active.checked .date-item-wrapper {
+          display: block;
+          background: $--color-neutral-rgba-6;
+        }
+        // 当前日期特殊样式
+        &.today .date-item-wrapper .solar-date {
+          position: relative;
+          color: $theme-color;
+          &::after {
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            display: block;
+            width: 3px;
+            height: 3px;
+            background: $theme-color;
+            border-radius: 50%;
+            content: '';
+          }
+        }
+        // 阴历每月第一天特殊样式
+        &.first-lunar-date .date-item-wrapper .lunar-date {
+          position: relative;
+          color: $theme-color;
+          &::after {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: $theme-color;
+            content: '';
+          }
+        }
+      }
+    }
+
+    tr.date-wrapper:last-child td {
+      border-bottom: 0;
+    }
+    tr.date-wrapper td:first-child {
+      border-left: 0;
+    }
+    tr.date-wrapper td:last-child {
+      border-right: 0;
+    }
+  }
+}
