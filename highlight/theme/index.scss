@@ -1,0 +1,15 @@
+@import '~@hui-pro/theme/index.scss';
+
+/* stylelint-disable */
+.h-highlight,
+.el-tree .el-tree-node > .el-tree-node__content .h-highlight {
+  color: $--color-brand;
+  transition: $--transition-all;
+}
+
+.highlighted .h-highlight,
+.el-tree-node.is-current > .el-tree-node__content .h-highlight,
+.el-autocomplete-suggestion li.highlighted .h-highlight,
+.el-autocomplete-suggestion li:active .h-highlight {
+  color: $--color-white;
+}
