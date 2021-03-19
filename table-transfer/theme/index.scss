@@ -1,0 +1,164 @@
+@import '~@hui-pro/theme/index.scss';
+
+@include b(table-transfer) {
+  height: 100%;
+  h3 {
+    height: 48px;
+    padding: 12px 0;
+    margin: 0;
+    color: #4c4c4c;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+  }
+
+  .el-table {
+    border-left: none;
+    &::after {
+      width: 0;
+    }
+  }
+  .el-table__body-wrapper {
+    height: calc(100% - 37px);
+    overflow-x: hidden;
+  }
+
+  .el-input-group__append .el-button {
+    width: 76px;
+  }
+
+  .alert-tip {
+    margin-top: 6px;
+    .el-alert__content {
+      padding-right: 12px;
+    }
+  }
+
+  .ellipsis {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  @include e(action) {
+    line-height: 56px;
+    text-align: center;
+  }
+
+  @include e(be-right) {
+    &.small {
+      width: calc(50% - 32px);
+    }
+    &.normal,
+    &.big {
+      width: calc(50% - 36px);
+    }
+    &.text {
+      width: calc(50% - 40px);
+    }
+
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 0 16px;
+    border: 1px solid #e5e5e5;
+    float: left;
+    .el-table {
+      height: calc(100% - 87px);
+    }
+    &.show-tip {
+      .el-table {
+        height: calc(100% - 126px);
+      }
+    }
+  }
+
+  @include e(operation-group) {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    .el-button {
+      height: 32px;
+      padding: 0 !important;
+      &:first-child {
+        margin-bottom: 24px;
+      }
+      &.small {
+        width: 32px;
+        min-width: 32px;
+      }
+      &.normal {
+        width: 40px;
+        min-width: 40px;
+      }
+      &.big {
+        width: 48px;
+        min-width: 48px;
+      }
+      &.text:first-child {
+        width: auto;
+        padding-right: 16px;
+        padding-left: 8px;
+      }
+      &.text:last-child {
+        width: auto;
+        padding-right: 16px;
+        padding-left: 8px;
+      }
+    }
+    .el-button + .el-button,
+    .el-button.is-loading span {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+  }
+
+  @include e(operation) {
+    position: relative;
+    &.small {
+      width: 64px;
+    }
+    &.normal,
+    &.big {
+      width: 72px;
+    }
+    &.text {
+      width: 80px;
+    }
+
+    height: 100%;
+    float: left;
+    text-align: center;
+  }
+
+  @include e(right) {
+    &.small {
+      width: calc(50% - 32px);
+    }
+    &.normal,
+    &.big {
+      width: calc(50% - 36px);
+    }
+    &.text {
+      width: calc(50% - 40px);
+    }
+
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 0 16px;
+    border: 1px solid #e5e5e5;
+    float: right;
+    .el-table {
+      height: calc(100% - 87px);
+    }
+    &.show-tip {
+      .el-table {
+        height: calc(100% - 126px);
+      }
+    }
+  }
+}
